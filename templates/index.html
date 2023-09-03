@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Status</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Include your CSS styles -->
+</head>
+<body>
+    <div id="service-container" class="service-container">
+        <!-- Your service boxes will be dynamically generated here -->
+    </div>
+
+    <script>
+        // Fetch server statuses from the backend
+        fetch('/status')
+            .then(response => response.json())
+            .then(serverStatuses => {
+                const serviceContainer = document.getElementById('service-container');
+
+                // Loop through server statuses and create boxes
+                for (const serverUrl in serverStatuses) {
+                    const status = serverStatuses[serverUrl];
+
+                    // Construct the full URL by concatenating window.location.host and externalPort
+                    const fullUrl = `http://${window.location.host}${serverUrl}`;
+
+                    // Create a clickable box with a link
+                    const box = document.createElement('div');
+                    box.className = 'service-box';
+                    box.innerHTML = `
+                        <a href="${fullUrl}" target="_blank">
+                            <div class="service-status ${status.toLowerCase()}">${status}</div>
+                            <div class="service-url">${serverUrl}</div>
+                        </a>
+                    `;
+
+                    // Append the box to the container
+                    serviceContainer.appendChild(box);
+                }
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+{
+    "containers": [
+      {
+        "name": "nodered",
+        "localUrl": "http://node-red:1880",
+        "externalPort": "1880"
+      },
+      {
+        "name": "pwa",
+        "localUrl": "http://pwa:3000",
+        "externalPort": "3001"
+      },
+      {
+        "name": "arena",
+        "localUrl": "http://arena:3001",
+        "externalPort": "3000"
+      },
+      {
+        "name": "watch",
+        "localUrl": "http://waraps_watch:3000",
+        "externalPort": "44445"
+      },
+      {
+        "name": "scenario_frontend",
+        "localUrl": "http://scenario_frontend:3000",
+        "externalPort": "3005"
+      },
+      {
+        "name": "Cesium 3D",
+        "localUrl": "http://cesium:8080",
+        "externalPort": "8800"
+      },
+      {
+        "name": "openAPI",
+        "localUrl": "http://openapi2mongodb:9000",
+        "externalPort": "9050/docs"
+      },
+      {
+        "name": "EventLogger",
+        "localUrl": "http://waraps-event-log:3000",
+        "externalPort": "4040"
+      },
+      {
+        "name": "AIICS Resource UI",
+        "localUrl": "http://resource-ui:10000",
+        "externalPort": "10000"
+      },
+      {
+        "name": "AIICS Waraps UI and OP0",
+        "localUrl": "http://waraps-ui:10000",
+        "externalPort": "10001"
+      },
+      {
+        "name": "AIICS Team UI",
+        "localUrl": "http://team-namager:10000",
+        "externalPort": "10002"
+      }
+    ]
+  }

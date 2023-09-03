@@ -1,0 +1,21 @@
+version: '3'
+services:
+  pinger:
+    image: pinger
+    ports:
+      - "8089:5000"
+    environment:
+      FLASK_ENV: development
+    #command: python3 backend.py
+    #command: flask run
+    networks:
+      - services
+      - frontend
+      - backend
+networks:
+  services:
+    external: true
+  frontend:
+    external: true
+  backend:
+    external: true
