@@ -4,41 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Service Status</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Include your CSS styles -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
-    <div id="service-container" class="service-container">
-        <!-- Your service boxes will be dynamically generated here -->
+    <div class="container">
+        <h1>Service Status</h1>
+        <div id="service-container" class="row">
+            <!-- Service status cards will be dynamically added here -->
+        </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
-        // Fetch server statuses from the backend
-        fetch('/status')
-            .then(response => response.json())
-            .then(serverStatuses => {
-                const serviceContainer = document.getElementById('service-container');
+        // Function to fetch and display service status
+        function fetchServiceStatus() {
+            // Make an AJAX request to get service status data from the backend
+            $.get("/status", function(data) {
+                // Clear the existing service status cards
+                $("#service-container").empty();
 
-                // Loop through server statuses and create boxes
-                for (const serverUrl in serverStatuses) {
-                    const status = serverStatuses[serverUrl];
+                // Get the current hostname
+                const hostname = window.location.hostname;
 
-                    // Construct the full URL by concatenating window.location.host and externalPort
-                    const fullUrl = `http://${window.location.host}${serverUrl}`;
+                // Iterate over the service URLs and create cards
+                for (const url in data) {
+                    const status = data[url];
+                    const serviceName = url.split("/").slice(-1)[0]; // Extract service name from the URL
 
-                    // Create a clickable box with a link
-                    const box = document.createElement('div');
-                    box.className = 'service-box';
-                    box.innerHTML = `
-                        <a href="${fullUrl}" target="_blank">
-                            <div class="service-status ${status.toLowerCase()}">${status}</div>
-                            <div class="service-url">${serverUrl}</div>
-                        </a>
+                    const card = `
+                        <div class="col s12 m6 l4">
+                            <a href="${hostname}:${status === 'Online' ? data[serviceName] : ''}" target="_blank">
+                                <div class="card ${status === 'Online' ? 'green' : 'red'}">
+                                    <div class="card-content white-text">
+                                        <span class="card-title">${serviceName}</span>
+                                        <p>Status: ${status}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
                     `;
-
-                    // Append the box to the container
-                    serviceContainer.appendChild(box);
+                    $("#service-container").append(card);
                 }
             });
+        }
+
+        // Fetch and display service status on page load
+        fetchServiceStatus();
+
+        // Refresh service status every 60 seconds
+        setInterval(fetchServiceStatus, 60000);
     </script>
 </body>
 </html>

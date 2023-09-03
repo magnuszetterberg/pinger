@@ -1,59 +1,84 @@
 {
-    "containers": [
-      {
-        "name": "nodered",
-        "localUrl": "http://node-red:1880",
-        "externalPort": "1880"
-      },
-      {
-        "name": "pwa",
-        "localUrl": "http://pwa:3000",
-        "externalPort": "3001"
-      },
-      {
-        "name": "arena",
-        "localUrl": "http://arena:3001",
-        "externalPort": "3000"
-      },
-      {
-        "name": "watch",
-        "localUrl": "http://waraps_watch:3000",
-        "externalPort": "44445"
-      },
-      {
-        "name": "scenario_frontend",
-        "localUrl": "http://scenario_frontend:3000",
-        "externalPort": "3005"
-      },
-      {
-        "name": "Cesium 3D",
-        "localUrl": "http://cesium:8080",
-        "externalPort": "8800"
-      },
-      {
-        "name": "openAPI",
-        "localUrl": "http://openapi2mongodb:9000",
-        "externalPort": "9050/docs"
-      },
-      {
-        "name": "EventLogger",
-        "localUrl": "http://waraps-event-log:3000",
-        "externalPort": "4040"
-      },
-      {
-        "name": "AIICS Resource UI",
-        "localUrl": "http://resource-ui:10000",
-        "externalPort": "10000"
-      },
-      {
-        "name": "AIICS Waraps UI and OP0",
-        "localUrl": "http://waraps-ui:10000",
-        "externalPort": "10001"
-      },
-      {
-        "name": "AIICS Team UI",
-        "localUrl": "http://team-namager:10000",
-        "externalPort": "10002"
-      }
-    ]
-  }
+  "containers": [
+    {
+      "name": "Arena",
+      "localUrl": "http://arena:3000",
+      "externalPort": "3000"
+    },
+    {
+      "name": "Watch",
+      "localUrl": "http://waraps_watch:3000",
+      "externalPort": "44445"
+    },
+    {
+      "name": "Scenario Frontend",
+      "localUrl": "http://scenario_frontend:3000",
+      "externalPort": "3005"
+    },
+    {
+      "name": "Cesium 3D",
+      "localUrl": "http://cesium:8080",
+      "externalPort": "8800"
+    },
+    {
+      "name": "pwa",
+      "localUrl": "http://pwa:3000",
+      "externalPort": "3001"
+    },
+    {
+      "name": "Node-red logic",
+      "localUrl": "http://nodered-logic:1880",
+      "externalPort": "1881"
+    },
+    {
+      "name": "Node-red UI",
+      "localUrl": "http://nodered-ui:1880",
+      "externalPort": "1880/ui"
+    },
+    {
+      "name": "Node-red Workflows",
+      "localUrl": "http://nodered-ui:1880",
+      "externalPort": "1880"
+    },
+    {
+      "name": "EventLogger",
+      "localUrl": "http://waraps-event-log:3000",
+      "externalPort": "4040"
+    },
+    {
+      "name": "Recorder and Playback",
+      "localUrl": "http://playback-frontend:80",
+      "externalPort": "8090"
+    },
+    {
+      "name": "Documentation",
+      "localUrl": "http://docs:3000",
+      "externalPort": "5050"
+    },
+    {
+      "name": "Studio Code-Server",
+      "localUrl": "http://code-server:8080",
+      "externalPort": "4030"
+    },
+    {
+      "name": "MQTT Explorer",
+      "localUrl": "http://mqtt-explorer:4000",
+      "externalPort": "4000"
+    },
+    {
+      "name": "AIICS Resource UI",
+      "localUrl": "http://resource-ui:10000",
+      "externalPort": "10000"
+    },
+    {
+      "name": "AIICS Waraps UI and OP0",
+      "localUrl": "http://waraps-ui:10000",
+      "externalPort": "10001"
+    },
+    {
+      "name": "AIICS Teams UI",
+      "localUrl": "http://team-manager:10000",
+      "externalPort": "10002"
+    }
+  ]
+}
