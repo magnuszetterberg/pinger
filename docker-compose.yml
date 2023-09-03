@@ -6,10 +6,8 @@ services:
       - "8089:5000"
     environment:
       FLASK_ENV: development
-    volumes:
-      - .:/app
-    #command: python3 backend.py
-    #command: flask run
+    #volumes:
+    #  - .:/app
     networks:
       - services
       - frontend
