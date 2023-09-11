@@ -31,7 +31,7 @@
                 for (const url in data) {
                     const status = data[url];
                     const serviceName = url.split("/").slice(-1)[0]; // Extract service name from the URL
-
+                    console.log("data", data)
                     const card = `
                         <div class="col s12 m6 l4">
                             <a href="${hostname}:${status === 'Online' ? data[serviceName] : ''}" target="_blank">
@@ -53,7 +53,7 @@
         fetchServiceStatus();
 
         // Refresh service status every 60 seconds
-        setInterval(fetchServiceStatus, 60000);
+        setInterval(fetchServiceStatus, 1000);
     </script>
 </body>
 </html>

@@ -3,15 +3,16 @@ services:
   pinger:
     image: pinger
     ports:
-      - "8089:5000"
+      - "8099:5000"
     environment:
       FLASK_ENV: development
     #volumes:
-    #  - .:/app
+    #  - ./:/app
     networks:
       - services
       - frontend
       - backend
+    command: "python -B backend.py"
 networks:
   services:
     external: true

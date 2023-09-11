@@ -7,6 +7,7 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
+ENV PYTHONUNBUFFERED=1
 
 # Install any needed packages specified in requirements.txt
 RUN pip install -r requirements.txt
@@ -16,4 +17,4 @@ EXPOSE 5000
 
 
 # Run the Flask application
-CMD ["python", "backend.py"]
+#CMD ["python", "-b", "backend.py"]
